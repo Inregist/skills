@@ -27,7 +27,10 @@ capturing-workflow
 Explicit-only tools:
 
 ```text
+caveman
 caveman-commit
+handoff
+pnpm-audit-fix
 ```
 
 Rule: one primary skill max unless the next action clearly needs support.
@@ -40,6 +43,7 @@ Frontend/backend specialists are not core spine.
 frontend build/review -> frontend-engineer / frontend-design / React / web-design skills
 backend/API/db -> backend-engineer
 browser proof -> playwright-cli
+test-first behavior loop -> tdd when explicitly requested or deliberately chosen
 dependency audit -> pnpm-audit-fix when explicitly invoked
 quality review -> code-quality-principles
 ```

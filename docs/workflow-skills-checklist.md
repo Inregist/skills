@@ -9,13 +9,13 @@ INTENT  - understand the real job
 ROUTE   - choose the smallest safe path
 CONTEXT - gather facts only when facts change action
 DECIDE  - resolve costly ambiguity
-ACT     - make the scoped change or answer
+ACT     - make the scoped change or answer; use TDD only for testable behavior loops
 PROVE   - use `verifying-work` to match evidence to the claim
 CLOSE   - report state, risk, and next step
 CAPTURE - make a reusable skill only after repetition
 ```
 
-`CLOSE` is normal agent behavior, not a skill. `ACT` uses `karpathy-guidelines` when implementation slop is likely.
+`CLOSE` is normal agent behavior. `handoff` is explicit session-transfer support. `ACT` uses `karpathy-guidelines` when implementation slop is likely, and `tdd` when a red-green loop is the right behavior tripwire.
 
 ## Core Skills
 
@@ -62,20 +62,28 @@ CAPTURE - make a reusable skill only after repetition
 - [ ] Output: assumptions, changed behavior/files, verification, remaining risk.
 - [ ] Stop: if task becomes broad or ambiguous, route back to `planning-work` or `grill-me`.
 
-### 7. `debugging-work`
+### 7. `tdd`
+
+- [ ] Trigger: user asks for TDD/test-first, or implementation deliberately needs a behavior tripwire.
+- [ ] Gate: one public-interface behavior test fails for the expected reason before implementation.
+- [ ] Output: RED result, GREEN result, refactor status, remaining behavior gaps.
+- [ ] Stop: do not use for visuals, architecture, docs, or final completion proof.
+
+### 8. `debugging-work`
 
 - [ ] Trigger: bug, failing test, regression, flaky behavior, or unexplained technical behavior.
 - [ ] Gate: failure, root-cause hypothesis, and evidence exist before fixing.
 - [ ] Output: failure, root cause, fix, verification, risk.
+- [ ] Note: after root cause, `tdd` may add a regression test for the behavior.
 
-### 8. `verifying-work`
+### 9. `verifying-work`
 
 - [ ] Trigger: before saying done, fixed, passing, ready, or verified.
 - [ ] Gate name: `PROVE`.
 - [ ] Gate: evidence actually proves the exact claim.
 - [ ] Output: check run, claim proven, remaining risk.
 
-### 9. `capturing-workflow`
+### 10. `capturing-workflow`
 
 - [ ] Trigger: repeated successful pattern, repeated failure mode, or user asks to make it reusable.
 - [ ] Gate: trigger and non-trigger are narrow.
@@ -98,6 +106,7 @@ CAPTURE - make a reusable skill only after repetition
 - [ ] One focused gate prevents likely failure.
 - [ ] Bugs/failures route to `debugging-work`.
 - [ ] Clear multi-step work routes to `planning-work`.
+- [ ] TDD/test-first routes to `tdd` only when explicit or deliberately chosen for behavior proof.
 - [ ] Pnpm audit remediation uses `pnpm-audit-fix` only when explicitly invoked.
 - [ ] Slop-prone implementation routes to `karpathy-guidelines`.
 - [ ] Verification matches the final claim.

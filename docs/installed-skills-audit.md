@@ -20,7 +20,10 @@ Spine skills:
 
 Explicit-only:
 
+- `caveman`
 - `caveman-commit`
+- `handoff`
+- `pnpm-audit-fix`
 
 Domain/support skills:
 
@@ -31,7 +34,7 @@ Domain/support skills:
 - `vercel-react-best-practices`
 - `web-design-guidelines`
 - `playwright-cli`
-- `pnpm-audit-fix`
+- `tdd`
 - `code-quality-principles`
 
 Removed from the spine:
@@ -48,10 +51,10 @@ Removed from the spine:
 | `ROUTE` | `routing-work` | `karpathy-guidelines` as optional guardrail |
 | `CONTEXT` | `discovering-context` | `zoom-out`, `improve-codebase-architecture` for heavy architecture context |
 | `DECIDE` | `grill-me` | `product-designer`, `tech-lead`, `frontend-design` for domain-specific decisions |
-| `ACT` | `karpathy-guidelines` when slop is likely | `frontend-engineer`, `backend-engineer`, `tdd`, React/Vercel skills when directly relevant |
+| `ACT` | `karpathy-guidelines` when slop is likely; `tdd` for explicit test-first behavior loops | `frontend-engineer`, `backend-engineer`, React/Vercel skills when directly relevant |
 | `DEBUG` | `debugging-work` | `systematic-debugging`, `diagnose`, `playwright-cli` |
-| `PROVE` | `verifying-work` | `playwright-cli`, `tdd`, `web-design-guidelines` |
-| `CLOSE` | `caveman-commit` only when explicitly invoked | `handoff` only when requested |
+| `PROVE` | `verifying-work` | `playwright-cli`, `web-design-guidelines` |
+| `CLOSE` | `handoff` and `caveman-commit` only when explicitly invoked | normal final answer behavior |
 | `CAPTURE` | `capturing-workflow` | `skill-creator`, `write-a-skill` |
 
 ## Routing Rules
@@ -64,15 +67,15 @@ Removed from the spine:
 
 Keep other installed skills available, but outside the source spine:
 
-- `caveman`: communication mode, explicit user preference.
+- `caveman`: communication mode; copied into source catalog; explicit user preference.
 - `caveman-commit`: commit-message generation only; explicit invoke, not routed by default.
 - `pnpm-audit-fix`: narrow dependency remediation; copied into source catalog; explicit invoke only.
 - `playwright-cli`: browser/UI verification; copied into source catalog.
-- `tdd`: test-first implementation when requested or clearly valuable.
+- `tdd`: copied into source catalog; behavior tripwire during coding, not generic final verification.
 - `systematic-debugging` / `diagnose`: heavier debugging reference.
 - `frontend-design`, `web-design-guidelines`, React/Vercel skills: frontend-specific work; copied into source catalog.
 - `improve-codebase-architecture`: HEAVY architecture review.
-- `handoff`: session transfer.
+- `handoff`: copied into source catalog; explicit session transfer.
 
 ## Known Risks
 

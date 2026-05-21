@@ -30,6 +30,16 @@ Use this checklist to test whether the workflow prevents wrong work without recr
 - [ ] Extra review is used only when risk warrants it.
 - [ ] `verifying-work` proves the final claim.
 
+### DISCIPLINE: Test-First Behavior Work
+
+- [ ] User asks for TDD/test-first, or the agent states why a behavior tripwire is needed.
+- [ ] `routing-work` selects `tdd` only in that case.
+- [ ] Agent writes one public-interface behavior test.
+- [ ] RED fails for the expected reason.
+- [ ] GREEN uses the smallest readable implementation.
+- [ ] `verifying-work` owns the final completion claim.
+- [ ] Agent does not use TDD for visual UI, architecture, docs, or generic verification.
+
 ### DISCIPLINE: Slop-Prone Execution
 
 - [ ] `routing-work` selects `karpathy-guidelines` when implementation drift is likely.
