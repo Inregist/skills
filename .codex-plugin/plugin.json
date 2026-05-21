@@ -1,0 +1,35 @@
+{
+  "name": "co-code",
+  "version": "0.1.0",
+  "description": "Shared workflow skills for agents.",
+  "author": {
+    "name": "Inregist"
+  },
+  "homepage": "https://github.com/inregist/skills",
+  "repository": "https://github.com/inregist/skills",
+  "license": "MIT",
+  "keywords": [
+    "skills",
+    "agents",
+    "team-workflows"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Inregist Skills",
+    "shortDescription": "Shared workflow skills for agents",
+    "longDescription": "Reusable workflow skills shared through a public skills catalog.",
+    "developerName": "Inregist",
+    "category": "Coding",
+    "capabilities": [
+      "Interactive",
+      "Read",
+      "Write"
+    ],
+    "defaultPrompt": [
+      "Route this task through the lightest workflow.",
+      "Prove this completion claim.",
+      "Help me capture this repeated workflow as a skill."
+    ],
+    "brandColor": "#2563EB"
+  }
+}
