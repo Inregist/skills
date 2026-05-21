@@ -4,23 +4,38 @@ This audit maps installed local skills and catalog skills to the current gate-ba
 
 ## Current Decision
 
-The source catalog should stay small. The workflow spine is a set of gates, not a full lifecycle.
+The workflow spine should stay small. The source catalog may also include explicit-only tools and selected domain specialists.
 
-Keep in `skills/`:
+Spine skills:
 
-- `caveman-commit` (explicit-only tool)
 - `intent`
 - `routing-work`
 - `discovering-context`
 - `grill-me`
 - `planning-work`
+- `karpathy-guidelines`
 - `debugging-work`
 - `verifying-work`
 - `capturing-workflow`
 
+Explicit-only:
+
+- `caveman-commit`
+
+Domain/support skills:
+
+- `frontend-engineer`
+- `backend-engineer`
+- `frontend-design`
+- `vercel-composition-patterns`
+- `vercel-react-best-practices`
+- `web-design-guidelines`
+- `playwright-cli`
+- `pnpm-audit-fix`
+- `code-quality-principles`
+
 Removed from the spine:
 
-- `executing-work`: direct action is normal agent behavior.
 - `reviewing-work`: review is useful, but should be a risk-triggered behavior or external specialist skill, not a default phase.
 - `finishing-work`: closeout is normal final-answer behavior.
 - `team-conventions`: project instructions belong in `AGENTS.md`/docs, not a workflow skill.
@@ -33,7 +48,7 @@ Removed from the spine:
 | `ROUTE` | `routing-work` | `karpathy-guidelines` as optional guardrail |
 | `CONTEXT` | `discovering-context` | `zoom-out`, `improve-codebase-architecture` for heavy architecture context |
 | `DECIDE` | `grill-me` | `product-designer`, `tech-lead`, `frontend-design` for domain-specific decisions |
-| `ACT` | none | `tdd`, `frontend-engineer`, `backend-engineer`, React/Vercel skills when directly relevant |
+| `ACT` | `karpathy-guidelines` when slop is likely | `frontend-engineer`, `backend-engineer`, `tdd`, React/Vercel skills when directly relevant |
 | `DEBUG` | `debugging-work` | `systematic-debugging`, `diagnose`, `playwright-cli` |
 | `PROVE` | `verifying-work` | `playwright-cli`, `tdd`, `web-design-guidelines` |
 | `CLOSE` | `caveman-commit` only when explicitly invoked | `handoff` only when requested |
@@ -47,15 +62,15 @@ Removed from the spine:
 
 ## Specialized Skills
 
-Keep installed skills available, but outside the source spine:
+Keep other installed skills available, but outside the source spine:
 
 - `caveman`: communication mode, explicit user preference.
 - `caveman-commit`: commit-message generation only; explicit invoke, not routed by default.
-- `pnpm-audit-fix`: narrow dependency remediation.
-- `playwright-cli`: browser/UI verification.
+- `pnpm-audit-fix`: narrow dependency remediation; copied into source catalog; explicit invoke only.
+- `playwright-cli`: browser/UI verification; copied into source catalog.
 - `tdd`: test-first implementation when requested or clearly valuable.
 - `systematic-debugging` / `diagnose`: heavier debugging reference.
-- `frontend-design`, `web-design-guidelines`, React/Vercel skills: frontend-specific work.
+- `frontend-design`, `web-design-guidelines`, React/Vercel skills: frontend-specific work; copied into source catalog.
 - `improve-codebase-architecture`: HEAVY architecture review.
 - `handoff`: session transfer.
 

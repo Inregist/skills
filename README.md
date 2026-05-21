@@ -12,23 +12,43 @@ This repo is the source of truth for skills. Update skills on one machine, push 
 .codex-plugin/
   plugin.json        # lets Codex load ./skills/
 skills/
+  backend-engineer/
+    SKILL.md
   caveman-commit/
     SKILL.md
   capturing-workflow/
+    SKILL.md
+  code-quality-principles/
     SKILL.md
   debugging-work/
     SKILL.md
   discovering-context/
     SKILL.md
+  frontend-design/
+    SKILL.md
+  frontend-engineer/
+    SKILL.md
   grill-me/
     SKILL.md
   intent/
     SKILL.md
+  karpathy-guidelines/
+    SKILL.md
   planning-work/
+    SKILL.md
+  playwright-cli/
+    SKILL.md
+  pnpm-audit-fix/
     SKILL.md
   routing-work/
     SKILL.md
+  vercel-composition-patterns/
+    SKILL.md
+  vercel-react-best-practices/
+    SKILL.md
   verifying-work/
+    SKILL.md
+  web-design-guidelines/
     SKILL.md
 ```
 
@@ -40,6 +60,7 @@ routing-work
 discovering-context
 grill-me
 planning-work
+karpathy-guidelines
 debugging-work
 verifying-work
 capturing-workflow
@@ -49,6 +70,20 @@ Explicit-only tools:
 
 ```text
 caveman-commit
+```
+
+Domain support:
+
+```text
+frontend-engineer
+backend-engineer
+frontend-design
+vercel-composition-patterns
+vercel-react-best-practices
+web-design-guidelines
+playwright-cli
+pnpm-audit-fix
+code-quality-principles
 ```
 
 Direct action, review, commit messages, and closeout are normal agent behavior unless a specialized skill is explicitly useful or explicitly invoked.
@@ -71,6 +106,8 @@ Each `SKILL.md` needs YAML frontmatter with at least `name` and `description`.
 2. Commit and push.
 3. Pull the repo on another machine.
 4. Restart the agent.
+
+See `docs/roadmap.md` for the current spine roadmap and coding standard.
 
 ## Skill Template
 

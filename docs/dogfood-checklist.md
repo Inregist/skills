@@ -24,10 +24,28 @@ Use this checklist to test whether the workflow prevents wrong work without recr
 
 - [ ] `routing-work` selects `planning-work`.
 - [ ] Plan has ordered tasks and verification per task.
+- [ ] Slop-prone execution uses `karpathy-guidelines`.
 - [ ] In live work, agent executes the first task directly after planning.
 - [ ] In route-only dogfood, agent states the plan it would follow before judging pass/fail.
 - [ ] Extra review is used only when risk warrants it.
 - [ ] `verifying-work` proves the final claim.
+
+### DISCIPLINE: Slop-Prone Execution
+
+- [ ] `routing-work` selects `karpathy-guidelines` when implementation drift is likely.
+- [ ] Agent defines success with a concrete proof check before editing.
+- [ ] Agent uses existing patterns before inventing helpers or abstractions.
+- [ ] Agent stops if the task becomes broad or ambiguous.
+- [ ] Verification proves the selected task, not the whole plan by vibe.
+
+### EXPLICIT: Pnpm Audit Remediation
+
+- [ ] User explicitly invokes `pnpm-audit-fix`.
+- [ ] `routing-work` does not select `pnpm-audit-fix` only from meta discussion.
+- [ ] Agent identifies vulnerable package and advisory.
+- [ ] Agent inspects dependency path with `pnpm why`.
+- [ ] Agent prefers normal updates before overrides.
+- [ ] Agent verifies with `pnpm audit` and relevant local checks.
 
 ### HEAVY: Ambiguous Design
 

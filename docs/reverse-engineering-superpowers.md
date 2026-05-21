@@ -160,12 +160,13 @@ routing-work
 discovering-context
 grill-me
 planning-work
+karpathy-guidelines
 debugging-work
 verifying-work
 capturing-workflow
 ```
 
-Direct action, review, and closeout remain normal agent behavior unless a specialized skill is explicitly useful.
+Direct action remains normal for tiny safe tasks. Use `karpathy-guidelines` when implementation slop is likely. Review and closeout remain normal agent behavior unless a specialized skill is explicitly useful.
 
 Optional heavy skills such as subagent orchestration and worktree management should wait until repeated real use proves they are worth the extra process cost.
 

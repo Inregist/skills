@@ -15,7 +15,7 @@ CLOSE   - report state, risk, and next step
 CAPTURE - make a reusable skill only after repetition
 ```
 
-`ACT` and `CLOSE` are normal agent behavior, not skills. Do not create a skill for a step unless loading it changes the next action.
+`CLOSE` is normal agent behavior, not a skill. `ACT` uses `karpathy-guidelines` when implementation slop is likely.
 
 ## Core Skills
 
@@ -55,20 +55,27 @@ CAPTURE - make a reusable skill only after repetition
 - [ ] Output: goal, task list, file scope, verification per task, first task.
 - [ ] Stop: do not plan when direct action is safer.
 
-### 6. `debugging-work`
+### 6. `karpathy-guidelines`
+
+- [ ] Trigger: implementation is likely to drift, overbuild, ignore scope, or produce slop.
+- [ ] Gate: change is surgical, minimal, and verifiable.
+- [ ] Output: assumptions, changed behavior/files, verification, remaining risk.
+- [ ] Stop: if task becomes broad or ambiguous, route back to `planning-work` or `grill-me`.
+
+### 7. `debugging-work`
 
 - [ ] Trigger: bug, failing test, regression, flaky behavior, or unexplained technical behavior.
 - [ ] Gate: failure, root-cause hypothesis, and evidence exist before fixing.
 - [ ] Output: failure, root cause, fix, verification, risk.
 
-### 7. `verifying-work`
+### 8. `verifying-work`
 
 - [ ] Trigger: before saying done, fixed, passing, ready, or verified.
 - [ ] Gate name: `PROVE`.
 - [ ] Gate: evidence actually proves the exact claim.
 - [ ] Output: check run, claim proven, remaining risk.
 
-### 8. `capturing-workflow`
+### 9. `capturing-workflow`
 
 - [ ] Trigger: repeated successful pattern, repeated failure mode, or user asks to make it reusable.
 - [ ] Gate: trigger and non-trigger are narrow.
@@ -91,6 +98,8 @@ CAPTURE - make a reusable skill only after repetition
 - [ ] One focused gate prevents likely failure.
 - [ ] Bugs/failures route to `debugging-work`.
 - [ ] Clear multi-step work routes to `planning-work`.
+- [ ] Pnpm audit remediation uses `pnpm-audit-fix` only when explicitly invoked.
+- [ ] Slop-prone implementation routes to `karpathy-guidelines`.
 - [ ] Verification matches the final claim.
 
 ### HEAVY
