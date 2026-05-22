@@ -47,7 +47,7 @@ Removed from the spine:
 
 | Gate | Catalog Skill | Installed/Specialized Support |
 | --- | --- | --- |
-| `INTENT` | `intent` | `co-code:intent` |
+| `INTENT` | `intent` | `yeehaw:intent` |
 | `ROUTE` | `routing-work` | `karpathy-guidelines` as optional guardrail |
 | `CONTEXT` | `discovering-context` | `zoom-out`, `improve-codebase-architecture` for heavy architecture context |
 | `DECIDE` | `grill-me` | `product-designer`, `tech-lead`, `frontend-design` for domain-specific decisions |

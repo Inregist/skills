@@ -1,5 +1,5 @@
 {
-  "name": "co-code",
+  "name": "yeehaw",
   "version": "0.1.0",
   "description": "Shared workflow skills for agents.",
   "author": {
@@ -15,7 +15,7 @@
   ],
   "skills": "./skills/",
   "interface": {
-    "displayName": "Inregist Skills",
+    "displayName": "Yeehaw Skills",
     "shortDescription": "Shared workflow skills for agents",
     "longDescription": "Reusable workflow skills shared through a public skills catalog.",
     "developerName": "Inregist",

@@ -32,7 +32,7 @@ Avoid these unless the codebase already uses the pattern or the runtime fact is 
 - Validation gymnastics: long `typeof`/`in` chains for object shape checks. Prefer existing schema/type validators such as Zod or project validation helpers.
 - Fake fallback: `?? []`, `|| ""`, empty objects, or catch-and-ignore. Only fallback when product behavior requires it.
 - Helper theater: one-use helpers, wrappers, factories, or services. Keep logic local until reuse or complexity is real.
-- Lookup branching: prefer typed maps/tables for key -> value, component, handler, route, or config. Use `switch` for real control flow or exhaustive unions.
+- Lookup branching: prefer typed object tables for key -> value, component, handler, route, or config, usually with `satisfies Record<Key, Value>` for exhaustiveness. Do not use `new Map()` for static string/enum-union lookups unless runtime insertion, deletion, iteration, or non-primitive keys are required. Use `switch` for real control flow or exhaustive unions.
 - State mirroring: duplicate server, query, form, or derived state. Keep one source of truth.
 - Effect abuse: React effects for derived values or event work. Derive in render; do event work in handlers.
 - Broad catch: catch everything and return default or success. Surface typed or user-safe errors.

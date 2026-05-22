@@ -1,4 +1,4 @@
-# Inregist Skills
+# Yeehaw Skills
 
 Low-token workflow skills for coding agents.
 
@@ -213,7 +213,7 @@ Create a local marketplace wrapper:
 
 ```bash
 mkdir -p ~/.agents/marketplaces/personal/plugins
-ln -s ~/work/inregist/skills ~/.agents/marketplaces/personal/plugins/co-code
+ln -s ~/work/inregist/skills ~/.agents/marketplaces/personal/plugins/yeehaw
 mkdir -p ~/.agents/marketplaces/personal/.agents/plugins
 ```
 
@@ -227,10 +227,10 @@ Create `~/.agents/marketplaces/personal/.agents/plugins/marketplace.json`:
   },
   "plugins": [
     {
-      "name": "co-code",
+      "name": "yeehaw",
       "source": {
         "source": "local",
-        "path": "./plugins/co-code"
+        "path": "./plugins/yeehaw"
       },
       "policy": {
         "installation": "AVAILABLE",
@@ -246,7 +246,7 @@ Install:
 
 ```bash
 codex plugin marketplace add ~/.agents/marketplaces/personal
-codex plugin add co-code --marketplace personal
+codex plugin add yeehaw --marketplace personal
 ```
 
 Restart Codex so the skills load.
@@ -261,27 +261,27 @@ repo/
     plugins/
       marketplace.json
   plugins/
-    co-code/
+    yeehaw/
       .codex-plugin/
         plugin.json
       skills/
         ...
 ```
 
-The marketplace file should point at `./plugins/co-code`:
+The marketplace file should point at `./plugins/yeehaw`:
 
 ```json
 {
-  "name": "co-code",
+  "name": "yeehaw",
   "interface": {
-    "displayName": "Co-code"
+    "displayName": "Yeehaw"
   },
   "plugins": [
     {
-      "name": "co-code",
+      "name": "yeehaw",
       "source": {
         "source": "local",
-        "path": "./plugins/co-code"
+        "path": "./plugins/yeehaw"
       },
       "policy": {
         "installation": "AVAILABLE",
@@ -297,14 +297,14 @@ Then install from GitHub:
 
 ```bash
 codex plugin marketplace add owner/repo --ref main
-codex plugin list --marketplace co-code
-codex plugin add co-code --marketplace co-code
+codex plugin list --marketplace yeehaw
+codex plugin add yeehaw --marketplace yeehaw
 ```
 
 Update later:
 
 ```bash
-codex plugin marketplace upgrade co-code
+codex plugin marketplace upgrade yeehaw
 ```
 
 Normal sync flow:
