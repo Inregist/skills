@@ -29,6 +29,7 @@ Every changed line should trace to the user's goal.
 Avoid these unless the codebase already uses the pattern or the runtime fact is explicit:
 
 - Type escape: `as any`, broad `as Type`, non-null assertions, or `@ts-ignore`. Prefer typed boundaries, schemas, generics, unions, or local narrowing.
+- Validation gymnastics: long `typeof`/`in` chains for object shape checks. Prefer existing schema/type validators such as Zod or project validation helpers.
 - Fake fallback: `?? []`, `|| ""`, empty objects, or catch-and-ignore. Only fallback when product behavior requires it.
 - Helper theater: one-use helpers, wrappers, factories, or services. Keep logic local until reuse or complexity is real.
 - Lookup branching: prefer typed maps/tables for key -> value, component, handler, route, or config. Use `switch` for real control flow or exhaustive unions.
@@ -53,5 +54,6 @@ Before done, check:
 - Did every changed line serve the request?
 - Did existing primitives cover solved behavior?
 - Did types prove the value shape without unsafe casts?
+- Did boundary validation use existing validators instead of ad hoc shape checks?
 - Did verification prove the requested behavior?
 - Are assumptions, risks, or unverified parts stated?
