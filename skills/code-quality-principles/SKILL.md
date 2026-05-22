@@ -21,6 +21,7 @@ Use this to make code cheaper to change, safer to run, and easier to understand.
 - Use precise names before comments; update docs when build, test, use, release, or API behavior changes.
 - Comment why a non-obvious choice exists; do not narrate obvious code.
 - Handle boundary inputs, failures, and unexpected states deliberately.
+- Preserve type and state integrity at boundaries; avoid bypassing errors with casts, defaults, or hidden mutation.
 - Add or adjust useful tests that would fail for the bug or risk; keep test code maintainable.
 - Keep components easy to test by reducing hidden state, wide dependencies, and hard-to-reach branches.
 - Check async, concurrency, retries, ordering, and side effects for races, deadlocks, duplicate writes, and leaks.
