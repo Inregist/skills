@@ -1,6 +1,6 @@
 ---
 name: intent-preflight
-description: Understand the user's real intent and choose the next behavior before acting. Use when starting non-trivial coding, debugging, planning, review, or workflow requests; when the user is vague, frustrated, corrective, or thinking aloud; or when the request may be solved at the wrong level.
+description: Understand the user's real intent and choose the next behavior before acting. Use when starting non-trivial coding, debugging, planning, review, or workflow requests; when the user is vague, frustrated, corrective, thinking aloud, shaping principles or working style; or when the request may be solved at the wrong level.
 ---
 
 # Intent Preflight
@@ -19,7 +19,7 @@ Use this as the front door for non-trivial work.
 
 - Direct action: intent clear, low risk, reversible.
 - Inspect evidence: repo/docs/tests can answer before asking.
-- Interview: work is big, ambiguous, costly, or user is thinking aloud.
+- Interview: work is big, ambiguous, costly, user is thinking aloud, or principles/working style are being shaped.
 - Plan: intent clear, implementation has multiple visible steps.
 - Debug: bug, failure, regression, flaky behavior, or unexpected output.
 - Execute: code change is scoped and ready.
