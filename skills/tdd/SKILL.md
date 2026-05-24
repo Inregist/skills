@@ -11,38 +11,17 @@ TDD catches behavior slop. It does not prove UI visuals, product decisions, arch
 
 ## Philosophy
 
-**Core principle**: Tests verify behavior through public interfaces, not implementation details. Code can change entirely; tests should not.
+Tests verify behavior through public interfaces, not implementation details. Prefer integration-style tests that exercise real code paths and read like specifications.
 
-**Good tests** are integration-style: they exercise real code paths through public APIs. They describe _what_ the system does, not _how_ it does it. A good test reads like a specification - "user can checkout with valid cart" tells you exactly what capability exists. These tests survive refactors because they don't care about internal structure.
-
-**Bad tests** are coupled to implementation. They mock internal collaborators, test private methods, or verify through external means (like querying a database directly instead of using the interface). The warning sign: your test breaks when you refactor, but behavior hasn't changed. If you rename an internal function and tests fail, those tests were testing implementation, not behavior.
+Avoid tests coupled to private methods, internal collaborators, or data structure shape. If a test fails after a refactor while behavior is unchanged, it was testing implementation.
 
 See [tests.md](tests.md) for examples and [mocking.md](mocking.md) only when the task needs that detail.
 
 ## Anti-Pattern: Horizontal Slices
 
-**DO NOT write all tests first, then all implementation.** This is "horizontal slicing" - treating RED as "write all tests" and GREEN as "write all code."
+Do not write all tests first, then all implementation. Bulk RED tends to test imagined behavior, data shapes, or function signatures before the real implementation path is understood.
 
-This produces **crap tests**:
-
-- Tests written in bulk test _imagined_ behavior, not _actual_ behavior
-- You end up testing the _shape_ of things (data structures, function signatures) rather than user-facing behavior
-- Tests become insensitive to real changes - they pass when behavior breaks, fail when behavior is fine
-- You outrun your headlights, committing to test structure before understanding the implementation
-
-**Correct approach**: Vertical slices via tracer bullets. One test -> one implementation -> repeat. Each test responds to what you learned from the previous cycle. Because you just wrote the code, you know exactly what behavior matters and how to verify it.
-
-```
-WRONG (horizontal):
-  RED:   test1, test2, test3, test4, test5
-  GREEN: impl1, impl2, impl3, impl4, impl5
-
-RIGHT (vertical):
-  RED -> GREEN: test1 -> impl1
-  RED -> GREEN: test2 -> impl2
-  RED -> GREEN: test3 -> impl3
-  ...
-```
+Use vertical tracer bullets instead: one behavior test, one minimal implementation, repeat. Each test should respond to what the last cycle proved.
 
 ## Workflow
 
@@ -63,7 +42,7 @@ For frontend work, use TDD for logic/state behavior only. Use browser proof for 
 
 ### 2. Tracer Bullet
 
-Write ONE test that confirms ONE thing about the system:
+Write one test that confirms one thing:
 
 ```
 RED:   Write test for first behavior -> test fails
@@ -111,4 +90,4 @@ After all tests pass, look for [refactor candidates](refactoring.md):
 [ ] No speculative features added
 ```
 
-Final completion still uses `verifying-work`: rerun the relevant tests and report what they prove.
+Final completion still uses `verification-discipline`: rerun the relevant tests and report what they prove.

@@ -1,6 +1,6 @@
 # Skills Catalog
 
-This context defines the shared language for a public repository of reusable workflow skills. The repo's job is to make skills easy to write, share, pull, and use across machines.
+This context defines the shared language for a public repository of reusable agent skills. The repo's job is to make skills easy to write, share, pull, and use across machines while keeping the active catalog small.
 
 ## Language
 
@@ -20,16 +20,16 @@ _Avoid_: Codex skill, Claude skill
 Minimal agent-specific metadata that points an agent at the **Skills** directory.
 _Avoid_: Skill source
 
-**Workflow Spine**:
-The core set of gates and skills that route ordinary agent work without turning every task into a mandatory lifecycle.
-_Avoid_: Framework, mandatory ceremony
+**Behavior Spine**:
+The small core set of skills that shape ordinary agent behavior: understand intent, expose multi-step work, code maintainably, prove claims, and learn repeated lessons.
+_Avoid_: Framework, mandatory ceremony, heavy router
 
 ## Relationships
 
 - A **Skills Catalog** contains one or more **Skills**.
 - A **Skill** may be a **Universal Skill** when it avoids agent-specific packaging assumptions.
 - A **Plugin Adapter** exists only to make an agent load the repository's **Skills**.
-- The **Workflow Spine** provides the default reusable workflow; specialized skills remain optional tools selected by routing.
+- The **Behavior Spine** provides the default reusable workflow; role and validation skills remain optional tools selected only when they change the next action.
 - The normal update workflow is Git: edit, commit, push, pull, restart the agent.
 
 ## Example dialogue

@@ -1,7 +1,7 @@
 {
   "name": "yeehaw",
   "version": "0.1.0",
-  "description": "Shared workflow skills for agents.",
+  "description": "Agent coaching skills for intent, visible work, maintainable code, verification, and learning.",
   "author": {
     "name": "Inregist"
   },
@@ -16,8 +16,8 @@
   "skills": "./skills/",
   "interface": {
     "displayName": "Yeehaw Skills",
-    "shortDescription": "Shared workflow skills for agents",
-    "longDescription": "Reusable workflow skills shared through a public skills catalog.",
+    "shortDescription": "Agent coaching skills for real engineering work",
+    "longDescription": "Low-token skills that help agents understand intent, expose multi-step work, code maintainably, prove claims, and capture repeated lessons.",
     "developerName": "Inregist",
     "category": "Coding",
     "capabilities": [
@@ -26,9 +26,10 @@
       "Write"
     ],
     "defaultPrompt": [
-      "Route this task through the lightest workflow.",
+      "Understand my intent before acting.",
+      "Make the implementation plan visible.",
       "Prove this completion claim.",
-      "Help me capture this repeated workflow as a skill."
+      "Capture this repeated mistake as a compact rule."
     ],
     "brandColor": "#2563EB"
   }

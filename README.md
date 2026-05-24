@@ -1,187 +1,106 @@
 # Yeehaw Skills
 
-Low-token workflow skills for coding agents.
+Agent coaching skills for real engineering work.
 
-This repo is a portable skill catalog. It exists to make agents less likely to do confident wrong work without loading a heavy process by default.
+Yeehaw treats the agent like an engineer learning company habits. The goal is not a rigid workflow. The goal is behavior shaping: understand intent, use evidence, make work visible, code maintainably, prove claims, and learn from repeated mistakes.
 
-## Why
+## Philosophy
 
-General agents often fail in predictable ways:
+Good agent behavior:
 
-- misunderstand the real intent;
-- ask questions instead of inspecting code;
-- plan forever but execute poorly;
-- overbuild simple changes;
-- fix symptoms without root cause;
-- claim "done" without evidence;
-- lose context between sessions.
+- understand vague human intent before acting;
+- inspect repo evidence before asking;
+- interview when work is big, ambiguous, or costly;
+- expose multi-step work in the TUI so the human can steer;
+- code small, readable, maintainable changes;
+- use tests, lint, typecheck, browser checks, and other system feedback;
+- report work before committing;
+- capture repeated mistake classes without bloating rules.
 
-Superpowers-style workflows help because they add process gates. They also cost a lot of tokens. This repo keeps the useful part: small skills that load only when they change the next action.
+The human is the tech lead and product owner. Skills are coaching, role ownership, guardrails, review habits, and compact memory.
 
-## What
+## Core Shape
 
-The catalog is gate-based, not a mandatory lifecycle.
-
-```text
-INTENT  -> understand the real job
-ROUTE   -> choose the smallest safe path
-CONTEXT -> gather facts only when facts change action
-DECIDE  -> resolve costly ambiguity
-ACT     -> make the scoped change
-PROVE   -> match evidence to the claim
-CLOSE   -> report state, risk, next step
-CAPTURE -> turn repeated patterns into skills
-```
-
-Most work should not load every gate. The right path is the smallest path that can succeed.
-
-## Agent Quick Start
-
-When using this catalog on a task:
-
-1. If the request may be solved at the wrong level, use `intent`.
-2. If work is non-trivial, use `routing-work`.
-3. Pick `FAST`, `DISCIPLINE`, or `HEAVY`.
-4. Load zero or one primary skill.
-5. Execute the smallest useful slice.
-6. Before claiming completion, use evidence that matches the claim.
-
-Default posture:
+Core skills:
 
 ```text
-clear + tiny       -> act directly
-clear + risky      -> one focused gate
-unclear + costly   -> discover context first
-done/fixed/ready   -> prove with fresh evidence
-```
-
-## How It Works
-
-`routing-work` classifies work into one of three modes:
-
-- `FAST`: clear, low-risk, reversible. Act directly, verify lightly.
-- `DISCIPLINE`: clear task with one likely failure mode. Load one focused skill.
-- `HEAVY`: ambiguous, risky, broad, or design-heavy. Discover context first, then decide or plan.
-
-Rule: prefer zero or one primary skill. Add support skills only when crossing a real boundary.
-
-Examples:
-
-```text
-small safe edit        -> FAST
-bug/failure           -> debugging-work
-slop-prone coding     -> karpathy-guidelines
-test-first behavior   -> tdd
-frontend feature      -> frontend-engineer
-backend/API/data      -> backend-engineer
-completion claim      -> verifying-work
-session transfer      -> handoff
-```
-
-## Decision Table
-
-| Situation | Primary skill |
-| --- | --- |
-| Vague, frustrated, or wrong-level request | `intent` |
-| Non-trivial work after intent is clear | `routing-work` |
-| Need facts from repo/docs before acting | `discovering-context` |
-| Costly design ambiguity | `grill-me` |
-| Clear multi-step implementation | `planning-work` |
-| Slop-prone coding or refactor | `karpathy-guidelines` |
-| Bug, failure, regression, unexplained behavior | `debugging-work` |
-| Explicit test-first behavior change | `tdd` |
-| Frontend feature/review | `frontend-engineer` |
-| Backend/API/data feature/review | `backend-engineer` |
-| Browser/UI proof | `playwright-cli` |
-| Completion claim | `verifying-work` |
-| Session transfer | `handoff` |
-| Repeated workflow worth reusing | `capturing-workflow` |
-
-## Failure Mode Map
-
-| AI failure | Tripwire |
-| --- | --- |
-| Solves literal ask but misses real goal | `intent` |
-| Loads too much process | `routing-work` |
-| Asks instead of inspecting available context | `discovering-context` |
-| Designs before terms are clear | `grill-me` |
-| Writes broad plan but no execution path | `planning-work` |
-| Overbuilds helpers or abstractions | `karpathy-guidelines` |
-| Fixes symptom without root cause | `debugging-work` |
-| Implements behavior without early feedback | `tdd` |
-| Says done without proof | `verifying-work` |
-| Loses state across sessions | `handoff` |
-
-## Why It Is Useful
-
-The useful pieces are:
-
-- `intent`: stops wrong-level work before it starts.
-- `routing-work`: prevents loading too much process.
-- `karpathy-guidelines`: keeps coding surgical, readable, and scoped.
-- `debugging-work`: forces root cause before fixes.
-- `tdd`: catches behavior slop with red-green feedback.
-- `verifying-work`: makes "done" mean evidence-backed.
-- `handoff`: transfers state to another session without replaying the full chat.
-- `caveman`: keeps communication compressed when tokens matter.
-
-This is not a magic quality system. It is a set of tripwires around common AI failure modes.
-
-## Non-Goals
-
-This repo is not:
-
-- a full Superpowers clone;
-- a mandatory step-by-step lifecycle;
-- a reason to load every relevant skill;
-- a generic code-quality guarantee;
-- a substitute for tests, browser checks, or human product judgment.
-
-Important boundaries:
-
-- `tdd` catches behavior slop, not visual or architecture problems.
-- `verifying-work` proves final claims; it is not replaced by TDD.
-- `debugging-work` comes before TDD when the root cause is unknown.
-- `caveman`, `handoff`, `caveman-commit`, and `pnpm-audit-fix` are explicit-use tools.
-
-## Skill Map
-
-Core spine:
-
-```text
-intent
-routing-work
-discovering-context
-grill-me
-planning-work
-karpathy-guidelines
-debugging-work
-verifying-work
-capturing-workflow
-```
-
-Explicit-only tools:
-
-```text
-caveman
-caveman-commit
+intent-preflight
+intent-interview
+implementation-plan
+engineering-discipline
+debug-discipline
+verification-discipline
+learning-loop
 handoff
-pnpm-audit-fix
 ```
 
-Domain/support skills:
+Role skills:
 
 ```text
 frontend-engineer
 backend-engineer
-frontend-design
-vercel-composition-patterns
-vercel-react-best-practices
-web-design-guidelines
-playwright-cli
-tdd
-code-quality-principles
+product-designer
+devops-engineer
 ```
+
+Validation skills:
+
+```text
+tdd
+browser-proof
+code-review
+```
+
+Explicit tools:
+
+```text
+caveman
+commit-planner
+audit-fix
+```
+
+See [docs/skill-architecture-v2.md](docs/skill-architecture-v2.md) for the migration map from the old catalog.
+
+## Migration Status
+
+V2 is the active plugin surface. Superseded v1 workflow and reference-heavy skills were removed from `skills/` to reduce trigger noise. Git history remains the archive for deleted source material.
+
+Next work:
+
+1. Dogfood the v2 triggers against real coding work.
+2. Tighten descriptions when invocation misses happen.
+3. Add rules only for repeated mistake classes.
+4. Refresh the installed plugin after an approved commit.
+
+## How It Works
+
+Start with `intent-preflight` for non-trivial work. It chooses the next behavior:
+
+| Situation | Behavior |
+| --- | --- |
+| Clear, tiny, reversible | Direct action |
+| Repo/docs/tests can answer | Inspect evidence |
+| Big, vague, costly, or ambiguous | `intent-interview` |
+| Clear multi-step implementation | `implementation-plan` |
+| Coding/refactor risk | `engineering-discipline` |
+| Bug/failure/regression | `debug-discipline` |
+| Completion claim | `verification-discipline` |
+| Repeated mistake pattern | `learning-loop` |
+| Session transfer | `handoff` |
+
+Do not load every relevant skill. Load the one skill that changes the next action.
+
+## Skill Rules
+
+Use the `write-a-skill` structure:
+
+- frontmatter description is the invocation surface;
+- description must include specific `Use when...` triggers;
+- `SKILL.md` should stay under 100 lines;
+- split rarely needed detail into one-level reference files;
+- add scripts only for deterministic repeated work.
+
+Add a skill only when it changes agent behavior. Do not add one rule per incident. Capture repeated mistake classes.
 
 ## Current Layout
 
@@ -191,6 +110,8 @@ code-quality-principles
 skills/
   <skill-name>/
     SKILL.md
+docs/
+  skill-architecture-v2.md
 ```
 
 Some skills include optional `references/`, `rules/`, or helper files. Load those only when the skill says they are needed.
@@ -338,21 +259,14 @@ Minimum `SKILL.md`:
 ```md
 ---
 name: my-skill
-description: Use when ...
+description: Does a specific capability. Use when specific triggers apply.
 ---
 
 # My Skill
 
-Write the workflow here.
+## Quick Start
+
+Describe the shortest workflow that changes the next action.
 ```
 
-Good skills are short, specific, and trigger narrowly. Do not add a skill just because it might be useful. Add one when repeated use proves it changes agent behavior.
-
-## Not Included By Default
-
-Some installed skills are useful but intentionally not owned by this catalog yet:
-
-- `systematic-debugging`: heavier debugging reference; current default is compact `debugging-work`.
-- `improve-codebase-architecture`: heavy architecture review; useful only when explicitly doing architecture work.
-
-See `docs/roadmap.md`, `docs/workflow-skills-checklist.md`, and `docs/installed-skills-audit.md` for current decisions.
+Good skills are short, specific, and trigger narrowly.

@@ -1,6 +1,6 @@
 ---
 name: frontend-engineer
-description: Build and review frontend features with clear render flow, state ownership, accessibility, and production UI behavior. Use when working on routes, React components, forms, client state, API consumption, or frontend feature slices; apply karpathy-guidelines inline and route to frontend-design, Vercel React skills, web-design-guidelines, or playwright-cli only when that risk exists.
+description: Build and review frontend features with clear render flow, state ownership, accessibility, and production UI behavior. Use when working on routes, React components, forms, client state, API consumption, or frontend feature slices; apply engineering-discipline inline and route to product-designer, browser-proof, tdd, or code-review only when that risk exists.
 ---
 
 # Frontend Engineer
@@ -9,7 +9,7 @@ Own the user workflow from data loading to visible UI states.
 
 ## Baseline
 
-Apply `karpathy-guidelines` inline: make the smallest readable change that solves the request. Use `code-quality-principles` as a lens when robustness, testability, security, abstraction, coupling, or maintainability risk is concrete.
+Apply `engineering-discipline` inline: make the smallest readable change that solves the request, use existing primitives first, and avoid known coding anti-patterns.
 
 Do not load those skills separately unless the next action needs their full checklist.
 
@@ -17,11 +17,10 @@ Do not load those skills separately unless the next action needs their full chec
 
 Load at most one specialist first, unless the next action clearly needs another.
 
-- `frontend-design`: creating or restyling visible UI where visual quality matters.
-- `vercel-composition-patterns`: reusable component APIs, boolean prop sprawl, compound components, or context/provider architecture.
-- `vercel-react-best-practices`: React/Next performance, data fetching, bundle size, RSC/SSR, hydration, or rerender risk.
-- `web-design-guidelines`: UI/UX/accessibility review after code exists.
-- `playwright-cli`: browser proof for rendered behavior, interactions, responsive layout, or screenshots.
+- `product-designer`: product/UX ambiguity, workflow shape, acceptance criteria, or visible design decisions.
+- `browser-proof`: rendered behavior, interactions, responsive layout, or screenshots need browser evidence.
+- `tdd`: component logic, state transitions, or data behavior can be protected with behavior tests.
+- `code-review`: risky or non-trivial frontend changes need an independent review pass.
 
 Do not load specialist skills just because the task is frontend. Load them when they change the next action.
 
@@ -46,7 +45,7 @@ Do not load specialist skills just because the task is frontend. Load them when 
 
 ## Review Gate
 
-- Can a junior trace what renders, where state lives, and what can fail?
+- Can a teammate trace what renders, where state lives, and what can fail?
 - Did existing frontend primitives cover solved behavior?
 - Did code quality improve without adding unnecessary layers?
 - Did verification prove the user-facing behavior?

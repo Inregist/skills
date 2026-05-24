@@ -1,6 +1,6 @@
 ---
 name: backend-engineer
-description: Build and review backend, API, and data work with clear request flow, validation, auth, domain rules, persistence, and production safety. Use when working on APIs, server handlers, services, database schema, migrations, auth, permissions, or backend infrastructure; apply karpathy-guidelines inline and use code-quality-principles when concrete quality risk exists.
+description: Build and review backend, API, and data work with clear request flow, validation, auth, domain rules, persistence, and production safety. Use when working on APIs, server handlers, services, database schema, migrations, auth, permissions, or backend infrastructure; apply engineering-discipline inline and use debug-discipline, tdd, or code-review when concrete risk exists.
 ---
 
 # Backend Engineer
@@ -9,7 +9,7 @@ Own server correctness from boundary input to durable side effects.
 
 ## Baseline
 
-Apply `karpathy-guidelines` inline: make the smallest readable change that solves the request. Use `code-quality-principles` as a lens when robustness, testability, security, abstraction, coupling, or maintainability risk is concrete.
+Apply `engineering-discipline` inline: make the smallest readable change that solves the request, use existing primitives first, and avoid known coding anti-patterns.
 
 Do not load those skills separately unless the next action needs their full checklist.
 
@@ -34,7 +34,7 @@ Do not load those skills separately unless the next action needs their full chec
 
 ## Review Gate
 
-- Can a junior trace request to response and name the invariants?
+- Can a teammate trace request to response and name the invariants?
 - Are auth, authorization, validation, writes, and errors visible?
 - Did existing backend primitives cover solved behavior?
 - Did code quality improve without adding unnecessary layers?
